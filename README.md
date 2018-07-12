@@ -21,6 +21,7 @@ Generate and update magically a table of contents based on the headlines of a pa
 <!--
 ## API Attributes
 
+- `titleSize:2`
 - `depthFrom:1`
 - `depthTo:6`
 - `withLinks:1`
@@ -42,7 +43,26 @@ apm install markdown-toc
 - Enable or disable links with `withLinks:1`
 - Refresh list on save with `updateOnSave:1`
 - Use ordered list (1. ..., 2. ...) with `orderedList:0`
+- Toc Title `## 目录(TOC)`
 
+```
+<!-- TOC titleSize:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+## 目录(TOC)
+- [title2](#title2)
+- [title2](#title2)
+	- [title3](#title3)
+
+<!-- /TOC -->
+```
+
+## Configurations
+
+To change the configurations,`Change` the value in text：
+
+ `<!-- TOC titleSize:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->`
+
+ and then `Update` the toc。
 
 ## Contributors
 
