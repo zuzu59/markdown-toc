@@ -37,6 +37,13 @@ The PopupWindow in following gif is `Command Shift P`.
 apm install markdown-toc
 ```
 
+or
+
+```bash
+cd ~/.atom/packages
+git clone .../markdown-toc.git
+```
+
 
 ## Features
 
