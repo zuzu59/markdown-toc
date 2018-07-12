@@ -6,6 +6,7 @@ class Toc
     @lines = []
     @list = []
     @options =
+      titleSize: 2  # titleSize
       depthFrom: 1  # depthFrom
       depthTo: 6  # depthTo
       withLinks: 1  # withLinks
@@ -90,9 +91,11 @@ class Toc
   # <!-- TOC --> [list] <!-- /TOC -->
   _createToc: () ->
     @__updateList()
+    @options.titleSize = if @options.titleSize isnt undefined then @options.titleSize else 2
     if Object.keys(@list).length > 0
       text = []
-      text.push "<!-- TOC depthFrom:"+@options.depthFrom+" depthTo:"+@options.depthTo+" withLinks:"+@options.withLinks+" updateOnSave:"+@options.updateOnSave+" orderedList:"+@options.orderedList+" -->\n"
+      text.push "<!-- TOC titleSize:"+@options.titleSize+" depthFrom:"+@options.depthFrom+" depthTo:"+@options.depthTo+" withLinks:"+@options.withLinks+" updateOnSave:"+@options.updateOnSave+" orderedList:"+@options.orderedList+" -->\n"
+      text.push new String("#").repeat(@options.titleSize) + " 目录(TOC)"
       list = @__createList()
       if list isnt false
         Array.prototype.push.apply text, list
@@ -191,6 +194,9 @@ class Toc
           @options.updateOnSave = parseInt value
         else if key.toLowerCase().valueOf() is new String("orderedlist").valueOf()
           @options.orderedList = parseInt value
+        else if key.toLowerCase().valueOf() is new String("titlesize").valueOf()
+          @options.titleSize = parseInt value
+
 
 
   # ----------------------------------------------------------------------------
