@@ -16,6 +16,8 @@ Generate and update magically a table of contents based on the headlines of a pa
 
 ## Usage
 
+The PopupWindow in following gif is `Command Shift P`.
+
 ![Magic](https://raw.githubusercontent.com/nok/markdown-toc/master/RECORD.gif)
 
 <!--
