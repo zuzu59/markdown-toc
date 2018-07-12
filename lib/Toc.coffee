@@ -131,17 +131,24 @@ class Toc
   __createList: () ->
     list = []
     depthFrom = if @options.depthFrom isnt undefined then @options.depthFrom else 1
+    depthFirst = -1
     depthTo = if @options.depthTo isnt undefined then @options.depthTo else 6
     indicesOfDepth = Array.apply(null, new Array(depthTo - depthFrom + 1)).map(Number.prototype.valueOf, 0);
+
     for own i, item of @list
       row = []
-      for tab in [depthFrom..item.depth] when tab > depthFrom
-        row.push "\t"
+      for tab in [depthFrom..item.depth] when tab > depthFirst
+        if depthFirst isnt -1
+          row.push "\t"
       if @options.orderedList is 1
         row.push ++indicesOfDepth[item.depth-1] + ". "
         indicesOfDepth = indicesOfDepth.map((value, index) -> if index < item.depth then value else 0)
       else
         row.push "- "
+        # jokin add
+        if depthFirst is -1
+          depthFirst = item.depth
+        # --
 
       line = item.line.substr item.depth
       line = line.trim()
