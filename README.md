@@ -24,6 +24,7 @@ The PopupWindow in following gif is `Command Shift P`.
 ## API Attributes
 
 - `titleSize:2`
+- `tabSpaces:4`
 - `depthFrom:1`
 - `depthTo:6`
 - `withLinks:1`
@@ -53,9 +54,10 @@ git clone .../markdown-toc.git
 - Refresh list on save with `updateOnSave:1`
 - Use ordered list (1. ..., 2. ...) with `orderedList:0`
 - Toc Title `## 目录(TOC)`
+- Soft/Hard tab support with `tabSpaces:4`. 0 for hard others for soft. Default is `@Editor.tabLength`.
 
 ```
-<!-- TOC titleSize:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<!-- TOC titleSize:2 tabSpaces:4 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 ## 目录(TOC)
 - [title2](#title2)
@@ -69,7 +71,7 @@ git clone .../markdown-toc.git
 
 To change the configurations,`Change` the value in text：
 
- `<!-- TOC titleSize:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->`
+ `<!-- TOC titleSize:2 tabSpaces:4 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->`
 
  and then `Update` the toc。
 
