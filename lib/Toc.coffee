@@ -5,8 +5,10 @@ class Toc
   constructor: (@editor) ->
     @lines = []
     @list = []
+    @tab = "\t"
     @options =
       titleSize: 2  # titleSize
+      tabSpaces: @editor.getTabLength()  # tabSpaces 0 for hard-tab
       depthFrom: 1  # depthFrom
       depthTo: 6  # depthTo
       withLinks: 1  # withLinks
@@ -92,9 +94,14 @@ class Toc
   _createToc: () ->
     @__updateList()
     @options.titleSize = if @options.titleSize isnt undefined then @options.titleSize else 2
+    @options.tabSpaces = if @options.tabSpaces isnt undefined then @options.tabSpaces else @editor.getTabLength()
+    if @options.tabSpaces > 0
+        @tab = new String(" ").repeat(@options.tabSpaces)
+    else
+        @tab = "\t"
     if Object.keys(@list).length > 0
       text = []
-      text.push "<!-- TOC titleSize:"+@options.titleSize+" depthFrom:"+@options.depthFrom+" depthTo:"+@options.depthTo+" withLinks:"+@options.withLinks+" updateOnSave:"+@options.updateOnSave+" orderedList:"+@options.orderedList+" -->\n"
+      text.push "<!-- TOC titleSize:"+@options.titleSize+" tabSpaces:"+@options.tabSpaces+" depthFrom:"+@options.depthFrom+" depthTo:"+@options.depthTo+" withLinks:"+@options.withLinks+" updateOnSave:"+@options.updateOnSave+" orderedList:"+@options.orderedList+" -->\n"
       text.push new String("#").repeat(@options.titleSize) + " 目录(TOC)"
       list = @__createList()
       if list isnt false
@@ -142,7 +149,7 @@ class Toc
       row = []
       for tab in [depthFrom..item.depth] when tab > depthFirst
         if depthFirst isnt -1
-          row.push "\t"
+          row.push @tab
       if @options.orderedList is 1
         row.push ++indicesOfDepth[item.depth-1] + ". "
         indicesOfDepth = indicesOfDepth.map((value, index) -> if index < item.depth then value else 0)
@@ -184,18 +191,20 @@ class Toc
           else
             value = 0
 
-        if key.toLowerCase().valueOf() is new String("depthfrom").valueOf()
+        if key.toLowerCase().valueOf() is new String("depthFrom").toLowerCase().valueOf()
           @options.depthFrom = parseInt value
-        else if key.toLowerCase().valueOf() is new String("depthto").valueOf()
+        else if key.toLowerCase().valueOf() is new String("depthTo").toLowerCase().valueOf()
           @options.depthTo = parseInt value
-        else if key.toLowerCase().valueOf() is new String("withlinks").valueOf()
+        else if key.toLowerCase().valueOf() is new String("withLinks").toLowerCase().valueOf()
           @options.withLinks = parseInt value
-        else if key.toLowerCase().valueOf() is new String("updateonsave").valueOf()
+        else if key.toLowerCase().valueOf() is new String("updateOnSave").toLowerCase().valueOf()
           @options.updateOnSave = parseInt value
-        else if key.toLowerCase().valueOf() is new String("orderedlist").valueOf()
+        else if key.toLowerCase().valueOf() is new String("orderedList").toLowerCase().valueOf()
           @options.orderedList = parseInt value
-        else if key.toLowerCase().valueOf() is new String("titlesize").valueOf()
+        else if key.toLowerCase().valueOf() is new String("titleSize").toLowerCase().valueOf()
           @options.titleSize = parseInt value
+        else if key.toLowerCase().valueOf() is new String("tabSpaces").toLowerCase().valueOf()
+          @options.tabSpaces = parseInt value
 
 
 
