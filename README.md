@@ -53,6 +53,7 @@ git clone .../markdown-toc.git
 - Enable or disable links with `withLinks:1`
 - Refresh list on save with `updateOnSave:1`
 - Use ordered list (1. ..., 2. ...) with `orderedList:0`
+- Auto indent when Title not start from `#`
 - Toc Title `## 目录(TOC)`
 - Soft/Hard tab support with `tabSpaces:4`. 0 for hard others for soft. Default is `@Editor.tabLength`.
 
