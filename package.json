@@ -1,7 +1,7 @@
 {
   "name": "markdown-toc",
   "main": "./lib/markdown-toc",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Generate TOC (table of contents) of headlines from parsed markdown file",
   "activationCommands": {
     "atom-workspace": [
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nok/markdown-toc"
+    "url": "https://github.com/ponsfrilus/markdown-toc"
   },
   "bugs": {
-    "url": "https://github.com/nok/markdown-toc/issues"
+    "url": "https://github.com/ponsfrilus/markdown-toc/issues"
   },
-  "homepage": "https://github.com/nok/markdown-toc",
+  "homepage": "https://github.com/ponsfrilus/markdown-toc",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"

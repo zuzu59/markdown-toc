@@ -1,38 +1,29 @@
-Markdown TOC
-============
+# Markdown TOC
 
 Generate and update magically a table of contents based on the headlines of a parsed [markdown](http://en.wikipedia.org/wiki/Markdown) file.
 
+<!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 -->
 
 ## Table of Contents
-
 - [Usage](#usage)
 - [Installation](#installation)
 - [Features](#features)
+- [Configurations](#configurations)
 - [Contributors](#contributors)
 - [Questions?](#questions)
 - [License](#license)
 
+<!-- /TOC -->
 
-## Usage
+
+# Usage
 
 The PopupWindow in following gif is `Command Shift P`.
 
 ![Magic](https://raw.githubusercontent.com/nok/markdown-toc/master/RECORD.gif)
 
-<!--
-## API Attributes
 
-- `titleSize:2`
-- `tabSpaces:4`
-- `depthFrom:1`
-- `depthTo:6`
-- `withLinks:1`
-- `updateOnSave:1`
-- `orderedList:0`
--->
-
-## Installation
+# Installation
 
 ```bash
 apm install markdown-toc
@@ -42,11 +33,11 @@ or
 
 ```bash
 cd ~/.atom/packages
-git clone .../markdown-toc.git
+git clone git@github.com:ponsfrilus/markdown-toc.git
 ```
 
 
-## Features
+# Features
 
 - Auto linking via  anchor tags, e.g.  `# A 1` → `#a-1`
 - Depth control [1-6] with `depthFrom:1` and `depthTo:6`
@@ -54,29 +45,20 @@ git clone .../markdown-toc.git
 - Refresh list on save with `updateOnSave:1`
 - Use ordered list (1. ..., 2. ...) with `orderedList:0`
 - Auto indent when Title not start from `#`
-- Toc Title `## 目录(TOC)`
+- Optional TOC title `## Table of Contents` with `title:[0,1]`
 - Soft/Hard tab support with `tabSpaces:4`. 0 for hard others for soft. Default is `@Editor.tabLength`.
+- Option to skip 0 to n titles with `skip:[0|n]`
 
-```
-<!-- TOC titleSize:2 tabSpaces:4 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-## 目录(TOC)
-- [title2](#title2)
-- [title2](#title2)
-	- [title3](#title3)
-
-<!-- /TOC -->
-```
-
-## Configurations
+# Configurations
 
 To change the configurations,`Change` the value in text：
 
- `<!-- TOC titleSize:2 tabSpaces:4 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->`
+ `<!-- TOC titleSize:2 tabSpaces:2 depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 skip:1 title:1 -->`
 
- and then `Update` the toc。
+and then `Update` the TOC.
 
-## Contributors
+# Contributors
 
 Thanks to all contributors for any fix or improvement, whether small or large.
 
@@ -86,13 +68,15 @@ Thanks to all contributors for any fix or improvement, whether small or large.
 - [spjoe](https://github.com/spjoe)
 - [Tom Byrer](https://github.com/tomByrer)
 - [betrue12](https://github.com/betrue12)
+- [jokinkuang](https://github.com/jokinkuang)
+- [ponsfrilus](https://github.com/ponsfrilus)
 
 
-## Questions?
+# Questions?
 
 Don't be shy and feel free to contact me on [Twitter](https://twitter.com/darius_morawiec).
 
 
-## License
+# License
 
 The package is Open Source Software released under the [MIT](LICENSE.md) license.
