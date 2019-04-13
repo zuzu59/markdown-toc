@@ -15,6 +15,7 @@ class Toc
       updateOnSave: 1 # updateOnSave
       orderedList: 0 # orderedList
       skip: 0 # skip 0 to n titles
+      title: 1 # Display or not the TOC title
 
     at = @
     @editor.getBuffer().onWillSave () ->
@@ -97,14 +98,16 @@ class Toc
     @options.titleSize = if @options.titleSize isnt undefined then @options.titleSize else 2
     @options.tabSpaces = if @options.tabSpaces isnt undefined then @options.tabSpaces else @editor.getTabLength()
     @options.skip = if @options.skip isnt undefined then @options.skip else 0
+    @options.title = if @options.title isnt undefined then @options.title else 1
     if @options.tabSpaces > 0
         @tab = new String(" ").repeat(@options.tabSpaces)
     else
         @tab = "\t"
     if Object.keys(@list).length > 0
       text = []
-      text.push "<!-- TOC titleSize:"+@options.titleSize+" tabSpaces:"+@options.tabSpaces+" depthFrom:"+@options.depthFrom+" depthTo:"+@options.depthTo+" withLinks:"+@options.withLinks+" updateOnSave:"+@options.updateOnSave+" orderedList:"+@options.orderedList+" skip:"+@options.skip+" -->\n"
-      text.push new String("#").repeat(@options.titleSize) + " Table of Contents"
+      text.push "<!-- TOC titleSize:"+@options.titleSize+" tabSpaces:"+@options.tabSpaces+" depthFrom:"+@options.depthFrom+" depthTo:"+@options.depthTo+" withLinks:"+@options.withLinks+" updateOnSave:"+@options.updateOnSave+" orderedList:"+@options.orderedList+" skip:"+@options.skip+" title:"+@options.title+" -->\n"
+      if @options.title
+        text.push new String("#").repeat(@options.titleSize) + " Table of Contents"
       list = @__createList()
       if list isnt false
         Array.prototype.push.apply text, list
@@ -212,6 +215,8 @@ class Toc
           @options.tabSpaces = parseInt value
         else if key.toLowerCase().valueOf() is new String("skip").toLowerCase().valueOf()
           @options.skip = parseInt value
+        else if key.toLowerCase().valueOf() is new String("title").toLowerCase().valueOf()
+          @options.title = parseInt value
 
 
 
