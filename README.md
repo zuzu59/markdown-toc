@@ -26,14 +26,9 @@ The PopupWindow in following gif is `Command Shift P`.
 # Installation
 
 ```bash
-apm install markdown-toc
-```
-
-or
-
-```bash
+rm ~/.atom/packages
 cd ~/.atom/packages
-git clone git@github.com:ponsfrilus/markdown-toc.git
+git clone https://github.com/zuzu59/markdown-toc.git
 ```
 
 
@@ -48,6 +43,7 @@ git clone git@github.com:ponsfrilus/markdown-toc.git
 - Optional TOC title `## Table of Contents` with `title:[0,1]`
 - Soft/Hard tab support with `tabSpaces:4`. 0 for hard others for soft. Default is `@Editor.tabLength`.
 - Option to skip 0 to n titles with `skip:[0|n]`
+- Works with French accented letters
 
 
 # Configurations
@@ -70,6 +66,8 @@ Thanks to all contributors for any fix or improvement, whether small or large.
 - [betrue12](https://github.com/betrue12)
 - [jokinkuang](https://github.com/jokinkuang)
 - [ponsfrilus](https://github.com/ponsfrilus)
+- [zuzu59](https://github.com/zuzu59)
+
 
 
 # Questions?
